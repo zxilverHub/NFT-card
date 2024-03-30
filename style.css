@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+	--soft-blue: hsl(215, 51%, 70%);
+	--cyan: hsl(178, 100%, 50%);
+	
+	--main-bg: hsl(217, 54%, 11%);
+	--card-bg: hsl(216, 50%, 16%);
+	--line: hsl(215, 32%, 27%);
+	--white: hsl(0, 0%, 100%);
+	
+	--text-size: 1.125rem;
+	
+	--weigth-sm: 300;
+	--weigth-md: 400;
+	--weigth-lg: 600;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-weight: var(--weigth-sm);
+	font-family: "Outfit", sans-serif;
+}
+
+.flex {
+	display: flex;
+}
+
+.description,
+.title-p {
+	font-size: var(--text-size);
+	color: var(--soft-blue);
+}
+
+h1 {
+	font-size: 1.5rem;
+	color: var(--white);
+	font-weight: var(--weigth-md);
+}
+
+h1:hover {
+	color: var(--cyan);
+	cursor: pointer;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+	height: 100dvh;
+	
+	background: var(--main-bg);
+}
+
+main {
+	width: 100%;
+	height: 100%;
+	
+		
+	display: grid;
+	place-content: center;
+}
+
+.card {
+	width: 350px;
+	max-width: 350px;
+	padding: 1.5rem;
+	
+	flex-direction: column;
+	gap: 1.2rem;
+	
+	background-color: var(--card-bg);
+	border-radius: 10px;
+	box-shadow: 0px 20px 0 10px hsl(217, 54%, 8%),
+				0px 20px 0 40px hsl(217, 54%, 10%);
+	
+	.image {
+		width: 100%;
+		aspect-ratio: 1;
+		position: relative;
+		transition-duration: .3s;
+		background: var(--white);
+		border-radius: 5px;
+		overflow: hidden;
+	}
+	
+	> .image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition-duration: .3s;
+	}
+	
+	.image svg {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+		transition-duration: .3s;
+	}
+	
+	.image:hover {
+		cursor: pointer;
+		
+		& svg {
+			opacity: 1;
+		}
+		
+		& img {
+			opacity: .8;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	.card {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+.day {
+	justify-content: space-between;
+	
+	& > * {
+		align-items: center;
+		gap: .5rem;
+	}
+	
+	.time {
+		color: var(--soft-blue);	
+	}
+	
+	.title-p {
+		color: var(--cyan);
+		font-weight: var(--weigth-lg);
+	}
+}
+
+.profile {
+	align-items: center;
+	justify-content: start;
+	gap: 1rem;
+	
+	padding-block: 1rem .1rem;
+	border-top: 1px solid var(--line);
+	
+	& img {
+		width: 35px;
+		aspect-ratio: 1;
+		border-radius: 50%;
+	}
+	
+	.username {
+		color: var(--soft-blue);
+		
+		& span { color: var(--white); }
+	}
+	
+	.username span:hover {
+		cursor: pointer;
+		color: var(--cyan);
+	}
+}
